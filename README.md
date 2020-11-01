@@ -6,6 +6,10 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `npm i`
+
+To download when you first clone the project all the node_modules that aren't push in the project to save push time because It's very loud.
+
 ### `npm start`
 
 Runs the app in the development mode.\
