@@ -6,6 +6,7 @@ function App() {
   return (
     <Router>
       <Navbar />
+      
       <Switch>
         <Route path='/' />
       </Switch>

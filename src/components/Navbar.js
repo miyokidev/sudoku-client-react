@@ -1,35 +1,27 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { FaBars, FaTimes } from 'react-icons/fa'
-import { GrGrid } from 'react-icons/gr'
+import { MdGridOn } from 'react-icons/md'
 import './Navbar.css'
+import { IconContext } from 'react-icons/lib'
 
 function Navbar() {
     const [click, setClick] = useState(false)
 
     const handleClick = () => setClick(!click)
 
-    const [button, setButton] = useState(true)
-
     const closeMobileMenu = () => setClick(false)
-
-    const showButton = () => {
-        if(window.innerWidth <= 960) {
-            setButton(false)
-        } else {
-            setButton(true)
-        }
-    }
-
-    window.addEventListener('resize', showButton)
 
     return (
         <>
+        <IconContext.Provider value={{ color: '#fff' }}>
         <div className="navbar">
             <div className="navbar-container container">
-                <Link to='/' className="navbar-logo">
-                    <GrGrid className='navbar-icon' /> 
-                sudoku.miyoki.ch
+                <Link to='/' className="navbar-logo" onClick={closeMobileMenu}>
+                    <IconContext.Provider value={{ color: '#fff' }}>
+                        <MdGridOn className='navbar-icon' /> 
+                    </IconContext.Provider>
+                    sudoku.<span className="text-red">miyoki.ch</span>
                 </Link>
                 <div className="menu-icon" onClick={handleClick}>
                     {click ? <FaTimes /> : <FaBars />}
@@ -53,6 +45,7 @@ function Navbar() {
                 </ul>
             </div>
         </div>
+        </IconContext.Provider>
         </>
     )
 }

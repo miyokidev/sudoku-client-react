@@ -9,6 +9,10 @@
     top: 0;
     z-index: 999;
   }
+
+  .text-red {
+    color: red;
+  }
   
   .navbar-container {
     display: flex;
@@ -55,7 +59,7 @@
   }
   
   .nav-item:hover {
-    border-bottom: 2px solid #f00946;
+    border-bottom: 2px solid red;
   }
   
   .nav-links {
@@ -108,7 +112,7 @@
     }
   
     .nav-links:hover {
-      color: #f00946;
+      color: red;
       transform: scale(1.2);
       transition: all 0.3s ease;
     }
@@ -125,7 +129,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      transform: translate(25%, 50%);
+      transform: translate(10%, 50%);
     }
   
     .menu-icon {
