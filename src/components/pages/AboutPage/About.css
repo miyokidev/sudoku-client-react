@@ -1,0 +1,6 @@
+.main {
+    background: #1c2237;
+    height: 600px;
+    z-index: 999;
+    border-bottom: 2px solid white;
+}
