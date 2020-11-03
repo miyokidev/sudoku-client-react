@@ -11,7 +11,6 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <Grid />
       <Switch>
         <Route path='/' exact component={Home}/>
         <Route path='/solver' exact component={Solver}/>
