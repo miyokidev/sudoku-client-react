@@ -5,7 +5,6 @@ import Home from './components/pages/HomePage/Home'
 import Solver from './components/pages/SolverPage/Solver'
 import About from './components/pages/AboutPage/About'
 import Footer from './components/Footer'
-import Grid from './components/Grid'
 
 function App() {
   return (

@@ -8,6 +8,7 @@ function Home() {
         <>
         <div className="main">
             <Grid/>
+            <Button />
         </div>
         </>
     )

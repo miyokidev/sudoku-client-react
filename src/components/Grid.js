@@ -1,12 +1,49 @@
 import React from 'react'
 import './Grid.css'
 
-function Square(props) {
-    return (
-        <input type="text" className="square">
+class Square extends React.Component {
+    constructor(props) {
+        super(props)
 
-        </input>
-    );
+        this.state = {
+            sqrValue: ''
+        }
+
+        this.onHandleSquareChange = this.onHandleSquareChange.bind(this)
+    }
+
+    onHandleSquareChange = e => {
+        let sqrValue = e.target.value
+
+        if (!Number(sqrValue) && sqrValue != '' || sqrValue == '0' && sqrValue != '' ) {
+            return;
+        } else {
+            this.setState({
+                [e.target.name]: sqrValue
+            })
+            /*
+            if (sqrValue <= 9) {
+                this.setState({
+                    [e.target.name]: sqrValue.charAt(0)
+                })
+            } else {
+                this.setState({
+                    [e.target.name]: sqrValue.charAt(1)
+                })
+            }
+            */
+        }
+        
+    }
+    
+    render() {
+        return (
+            <input type="text" className="square" name="sqrValue"
+            value={this.state.sqrValue} 
+            onChange={this.onHandleSquareChange}
+            />
+        );
+    }
 }
 
 class Grid extends React.Component {
