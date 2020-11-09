@@ -6,41 +6,36 @@ class Square extends React.Component {
         super(props)
 
         this.state = {
-            sqrValue: ''
+            sqrValue: '',
+            regexp: /^[1-9\b]+$/
         }
 
         this.onHandleSquareChange = this.onHandleSquareChange.bind(this)
+        this.onHandleSquareKeyPress = this.onHandleSquareKeyPress.bind(this)
+    }
+
+    onHandleSquareKeyPress = e => {
+        let newSqrValue = e.key
+
+        if (newSqrValue === '' || this.state.regexp.test(newSqrValue)) {
+            this.setState( { [e.target.name]: newSqrValue})
+        }
     }
 
     onHandleSquareChange = e => {
         let sqrValue = e.target.value
 
-        if (!Number(sqrValue) && sqrValue != '' || sqrValue == '0' && sqrValue != '' ) {
-            return;
-        } else {
-            this.setState({
-                [e.target.name]: sqrValue
-            })
-            /*
-            if (sqrValue <= 9) {
-                this.setState({
-                    [e.target.name]: sqrValue.charAt(0)
-                })
-            } else {
-                this.setState({
-                    [e.target.name]: sqrValue.charAt(1)
-                })
-            }
-            */
+        if (sqrValue === '') {
+            this.setState( { [e.target.name]: sqrValue})
         }
-        
     }
     
     render() {
         return (
-            <input type="text" className="square" name="sqrValue"
+            <input type="text" className="square" name="sqrValue" maxLength="1"
             value={this.state.sqrValue} 
             onChange={this.onHandleSquareChange}
+            onKeyPress={this.onHandleSquareKeyPress}
             />
         );
     }
