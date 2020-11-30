@@ -1,21 +1,59 @@
-.square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
+  * {
     padding: 0;
-    text-align: center;
-    width: 34px;
+    margin: 0;
   }
 
-  .grid-row:after {
-    clear: both;
+  .sudoku-grid {
+    padding: 50px 200px;
+  }
+  
+  .sudoku-grid .sudoku {
+    width: 100%;
+    border: 4px solid black;
+  }
+
+  .sudoku-grid .sudoku td {
+    position: relative;
+    border: 2px solid #999;
+    width: 11.11%;
+    height: 11.11%;
+  }
+
+  .sudoku-grid .sudoku td:after {
+    display: block;
     content: "";
-    display: table;
+    margin-top: 100%;
+  }
+  
+  .sudoku-grid .sudoku input {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border: none;
+    font-size: 24px;
+    text-align: center;
+  }
+
+  .sudoku-grid .sudoku .bottom {
+    border-bottom: 2px solid black;
+  }
+
+  /* Remove Arrows/Spinners */
+  /* Chrome, Safari, Edge, Opera */
+  .sudoku-grid .sudoku input::-webkit-outer-spin-button,
+  .sudoku-grid .sudoku input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  /* Firefox */
+  .sudoku-grid input[type=number] {
+    -moz-appearance: textfield;
+  }
+
+  table {
+    border-collapse: collapse;
   }
   

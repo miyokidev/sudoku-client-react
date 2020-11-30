@@ -32,7 +32,9 @@ class Square extends React.Component {
     
     render() {
         return (
-            <input type="text" className="square" name="sqrValue" maxLength="1"
+            <input type="number" inputMode="numeric" name="sqrValue" maxLength="1"
+            tabIndex="0" autoComplete="off" size="1" pattern="[0-9]*" min="1" max="9"
+            className={this.props.attribute}
             value={this.state.sqrValue} 
             onChange={this.onHandleSquareChange}
             onKeyPress={this.onHandleSquareKeyPress}
@@ -42,24 +44,33 @@ class Square extends React.Component {
 }
 
 class Grid extends React.Component {
-    renderSquare(i) {
+    renderSquare(i,attribute) {
         return(
-            <Square/>
+            <Square attribute={attribute}/>
         );
     }
     
     render() {
         return (
-            <div className="grid">
+            <div className="sudoku-grid">
+                <table className="sudoku">
                 {[...Array(9)].map(i => {
                     return (
-                        <div className="grid-row">
+                        <tr>
                             {[...Array(9)].map(j => {
-                                return this.renderSquare(3*i + j)
+                                    if (i % 3 === 0) {
+                                        if (j % 3 === 0) {
+                                            return <td className="square">{this.renderSquare(3*i + j)}</td>
+                                        } else {
+                                            return <td className="square">{this.renderSquare(3*i + j,"bottom")}</td>
+                                        }
+                                    }
+                                    return <td className="square">{this.renderSquare(3*i + j)}</td>
                             })}
-                        </div>
+                        </tr>
                     );
                 })}
+                </table>
             </div>
         );
     }
