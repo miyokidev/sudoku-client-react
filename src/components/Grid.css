@@ -39,6 +39,7 @@
 
   .sudoku-grid .sudoku .bottom {
     border-bottom: 2px solid black;
+    color: red;
   }
 
   /* Remove Arrows/Spinners */

@@ -7,7 +7,7 @@ class Square extends React.Component {
 
         this.state = {
             sqrValue: '',
-            regexp: /^[1-9\b]+$/
+            regexp: /^[1-9]+$/
         }
 
         this.onHandleSquareChange = this.onHandleSquareChange.bind(this)
@@ -44,7 +44,8 @@ class Square extends React.Component {
 }
 
 class Grid extends React.Component {
-    renderSquare(i,attribute) {
+    renderSquare(attribute) {
+        console.log(attribute);
         return(
             <Square attribute={attribute}/>
         );
@@ -54,22 +55,25 @@ class Grid extends React.Component {
         return (
             <div className="sudoku-grid">
                 <table className="sudoku">
-                {[...Array(9)].map(i => {
+                    <tbody>
+                    {[...Array(9)].map((value,indexi) => {
                     return (
                         <tr>
-                            {[...Array(9)].map(j => {
-                                    if (i % 3 === 0) {
-                                        if (j % 3 === 0) {
-                                            return <td className="square">{this.renderSquare(3*i + j)}</td>
+                            {[...Array(9)].map((value,indexj) => {
+                                console.log(indexi+1);
+                                    if ((indexi+1) % 3 === 0) {
+                                        if ((indexj+1) % 3 === 0) {
+                                            return <td className="square">{this.renderSquare("non")}</td>
                                         } else {
-                                            return <td className="square">{this.renderSquare(3*i + j,"bottom")}</td>
+                                            return <td className="square">{this.renderSquare("bottom")}</td>
                                         }
-                                    }
-                                    return <td className="square">{this.renderSquare(3*i + j)}</td>
+                                    } 
+                                        return <td className="square">{this.renderSquare("oui")}</td>
                             })}
                         </tr>
                     );
                 })}
+                    </tbody>
                 </table>
             </div>
         );
