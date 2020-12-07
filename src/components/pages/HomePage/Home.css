@@ -3,4 +3,27 @@
     height: 600px;
     z-index: 999;
     border-bottom: 2px solid white;
+    width: 100%;
+}
+
+@media (min-width: 1200px) {
+    .main {
+        max-width: 1140px;
+    }
+}
+
+@media (min-width: 768px) {
+    .main {
+        max-width: 720px;
+    }
+}
+
+@media (min-width: 576px) {
+    .main {
+        max-width: 540;
+    }
+}
+
+div {
+    display: block;
 }
