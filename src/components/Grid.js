@@ -60,15 +60,15 @@ class Grid extends React.Component {
                     return (
                         <tr>
                             {[...Array(9)].map((value,indexj) => {
-                                console.log(indexi+1);
-                                    if ((indexi+1) % 3 === 0) {
-                                        if ((indexj+1) % 3 === 0) {
-                                            return <td className="square">{this.renderSquare("non")}</td>
-                                        } else {
-                                            return <td className="square">{this.renderSquare("bottom")}</td>
-                                        }
-                                    } 
-                                        return <td className="square">{this.renderSquare("oui")}</td>
+                                if ((indexi+1) % 3 === 0 && indexi+1 !== 9 && (indexj+1) % 3 === 0 && indexj+1 !== 9) {
+                                    return <td className="square">{this.renderSquare("bottom side")}</td>
+                                } else if ((indexi+1) % 3 === 0 && indexi+1 !== 9) {
+                                    return <td className="square">{this.renderSquare("bottom")}</td>
+                                } else if ((indexj+1) % 3 === 0 && indexj+1 !== 9) {
+                                    return <td className="square">{this.renderSquare("side")}</td>
+                                }
+
+                                return <td className="square">{this.renderSquare("")}</td>
                             })}
                         </tr>
                     );
